@@ -1,8 +1,7 @@
 from rest_framework import serializers
 from .models import box
-class BoxSerializer(serializers.ModelSerializers):
+
+class BoxSerializer(serializers.ModelSerializer):
     class Meta:
         model = box
-        fields = ['id', 'nome', 'numero']
-        # quero usar todos os campos
-        # fields = '__all__'
+        fields = '__all__'   # ou liste os campos: ['id', 'nome', 'numero']

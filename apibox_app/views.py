@@ -5,13 +5,10 @@
    https://ww.w3schools.com/js/js__json.asp
 """
 
-from django.http import JsonResponse
-def box(request):
-    if request.method == 'GET':
-        box_feira={
-            'id': 1,
-            'nome': 'Loja Infantil Kids Graça',
-            'numero': 101,
-        }
-        return JsonResponse(box_feira)
+from rest_framework import viewsets
+from .models import box
+from .serializers import BoxSerializer
 
+class BoxViewSet(viewsets.ModelViewSet):
+    queryset = box.objects.all()
+    serializer_class = BoxSerializer

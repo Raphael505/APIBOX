@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'apibox_app',
     'rest_framework',
+    'apibox_app',
+
 ]
 
 MIDDLEWARE = [

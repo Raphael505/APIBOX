@@ -1,8 +1,10 @@
-from django.urls import path
-from apibox_app.views import box  # se for usar suas views aqui
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import BoxViewSet
+
+router = DefaultRouter()
+router.register(r'boxes', BoxViewSet)   # 'boxes' é o nome que vai aparecer na URL
 
 urlpatterns = [
-    path('box/', box, name='box'),
-    # Suas rotas entram aqui, por exemplo:
-    # path('', views.home, name='home'),
+    path('', include(router.urls)),     # Isso cria a API Root automaticamente
 ]
